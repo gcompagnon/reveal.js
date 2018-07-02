@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +24,22 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-markdown="markdown/20180702_SAM_BusinessPlan.md" data-separator="^---$" data-separator-vertical="^--$"></section>
+				<section>
+					<h3>Evaluation et Attribution de la performance OPCVM (macro et micro)</h3>
+					<h3>décomposition: Allocation / Sélection</h3>
+					<h3>Modèle du Medaf / CAPM </h3>
+				
+					<div class="fragment">
+						\[R_{théorique}   = R_{OAT} + \beta * ( R_{indice} - R_{OAT} ) \]
+					</div>
+					<div class="fragment">
+						\[\alpha = R_{port} - R_{théorique} \]
+					</div>
+</section>
+
+	
+				<section>Fin</section>
 			</div>
 		</div>
 
@@ -37,12 +51,35 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},
 				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
+					// Speaker notes
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+					// Zoom in and out with Alt+click
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					//math formula
+					{ src: 'plugin/math/math.js', async: true }
+				],
+				// Options which are passed into marked
+	            // See https://github.com/chjj/marked#options-1
+	            markdown: {
+		            smartypants: true
+	                }
 			});
 		</script>
 	</body>
